@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Builder - Google Form Clone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .form-card {
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .option-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .option-item input[type="text"] {
+            flex-grow: 1;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container pt-5">
+    <h3 class="mb-4">Trình tạo biểu mẫu</h3>
+
+    <div id="formBuilder"></div>
+
+    <div class="d-flex gap-2 mt-3">
+        <select id="componentType" class="form-select w-auto">
+            <option value="input">Input</option>
+            <option value="select">Dropdown</option>
+            <option value="checkbox">Checkbox</option>
+            <option value="radio">Radio</option>
+        </select>
+        <button onclick="addComponent()" class="btn btn-primary">+ Thêm câu hỏi</button>
+        <button onclick="saveForm()" class="btn btn-success"> Lưu Form</button>
+    </div>
+</div>
+
+<script>
+    let questionId = 0;
+
+    function addComponent() {
+        const type = document.getElementById("componentType").value;
+        const id = questionId++;
+        const container = document.createElement("div");
+        container.className = "form-card";
+        container.setAttribute("data-id", id);
+        container.setAttribute("data-type", type);
+
+        let html = `<div class="d-flex justify-content-between align-items-start">
+            <div class="w-100">`;
+
+        if (type === "input") {
+            html += `
+                <div class="mb-3">
+                    <label contenteditable="true" class="form-label">Câu hỏi input</label>
+                    <input type="text" class="form-control" placeholder="Câu trả lời">
+                </div>`;
+        }
+
+        if (type === "select") {
+            html += `
+                <div class="mb-3">
+                    <label contenteditable="true" class="form-label">Câu hỏi dropdown</label>
+                    <div id="select-options-${id}"></div>
+                    <button class="btn btn-sm btn-outline-secondary mt-2" type="button" onclick="addSelectOption(${id})">+ Thêm lựa chọn</button>
+                </div>`;
+        }
+
+        if (type === "checkbox" || type === "radio") {
+            html += `
+                <div class="mb-3">
+                    <label contenteditable="true" class="form-label">Câu hỏi ${type}</label>
+                    <div id="${type}-options-${id}"></div>
+                    <button class="btn btn-sm btn-outline-secondary mt-2" type="button" onclick="addOption('${type}', ${id})">+ Thêm lựa chọn</button>
+                </div>`;
+        }
+
+        html += `</div>
+            <button class="btn btn-sm btn-danger ms-2" onclick="removeComponent(this)">🗑️ Xóa</button>
+        </div>`;
+
+        container.innerHTML = html;
+        document.getElementById("formBuilder").appendChild(container);
+
+        // Thêm 2 lựa chọn mặc định cho select/checkbox/radio
+        if (type === "select" || type === "checkbox" || type === "radio") {
+            addOption(type, id);
+            addOption(type, id);
+        }
+    }
+
+    function removeComponent(button) {
+        const card = button.closest(".form-card");
+        card.remove();
+    }
+
+    function addSelectOption(id) {
+        const container = document.getElementById(`select-options-${id}`);
+        const item = document.createElement("div");
+        item.className = "option-item";
+        item.innerHTML = `
+            <input type="text" class="form-control form-control-sm" placeholder="Lựa chọn">
+            <button class="btn btn-sm btn-danger" type="button" onclick="this.parentElement.remove()">X</button>`;
+        container.appendChild(item);
+    }
+
+    function addOption(type, id) {
+        const container = document.getElementById(`${type}-options-${id}`);
+        const item = document.createElement("div");
+        item.className = "option-item";
+        item.innerHTML = `
+            <input class="form-check-input me-2" type="${type}" disabled>
+            <input type="text" class="form-control form-control-sm" placeholder="Lựa chọn">
+            <button class="btn btn-sm btn-danger" type="button" onclick="this.parentElement.remove()">X</button>`;
+        container.appendChild(item);
+    }
+
+    function saveForm() {
+        const cards = document.querySelectorAll(".form-card");
+        const formData = [];
+
+        cards.forEach(card => {
+            const type = card.getAttribute("data-type");
+            const label = card.querySelector("label.form-label")?.innerText.trim();
+            let options = [];
+
+            if (type === "select" || type === "checkbox" || type === "radio") {
+                const items = card.querySelectorAll(".option-item input[type='text']");
+                items.forEach(i => options.push(i.value.trim()));
+            }
+
+            formData.push({ type, label, options });
+        });
+
+        console.log("📋 Form data:", formData);
+
+        // Gửi formData về backend nếu muốn
+        // fetch('/api/form-builder/save', {
+        //     method: 'POST',
+        //     headers: { 'Content-Type': 'application/json' },
+        //     body: JSON.stringify(formData)
+        // });
+    }
+</script>
+
+</body>
+</html>

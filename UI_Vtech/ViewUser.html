@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Admin</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet"> -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- datatables -->
+     <!-- <link href="css/sb-admin-2.min.css" rel="stylesheet"> -->
+    <link href="datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="datatables/dataTables.bootstrap4.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid position-relative bg-white d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <div id="sidebar-container"></div>
+
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                    <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+                </a>
+                <a href="#" class="sidebar-toggler flex-shrink-0">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <form class="d-none d-md-flex ms-4">
+                    <input class="form-control border-0" type="search" placeholder="Search">
+                </form>
+                <div class="navbar-nav align-items-center ms-auto">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="fa fa-envelope me-lg-2"></i>
+                            <span class="d-none d-lg-inline-flex">Message</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item text-center">See all message</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="fa fa-bell me-lg-2"></i>
+                            <span class="d-none d-lg-inline-flex">Notificatin</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">Profile updated</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">New user added</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">Password changed</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item text-center">See all notifications</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex">Nguyen Van A</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">My Profile</a>
+                            <a href="#" class="dropdown-item">Settings</a>
+                            <a href="#" class="dropdown-item">Log Out</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- Navbar End -->
+
+            <!-- View Start -->
+                <div class="container-fluid">
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">User information</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>NAME</th>
+                                            <th>Address</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Role</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th></th>
+                                            <th>NAME</th>
+                                            <th>Address</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Role</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Hien</td>
+                                            <td>abcabcabc</td>
+                                            <td>abc@gmail.com</td>
+                                            <td>0123456789</td>
+                                            <td>
+                                                Staff
+                                            </td>
+                                            <td>
+                                                <a href="#" onclick="toggleStatus(this); return false;">True</a>
+                                            </td>                                          
+                                        </tr>   
+                                        <tr><td>2</td><td>Minh</td><td>Address 2</td><td>minh2@example.com</td><td>0123450002</td><td>Guest</td><td><a href="#" onclick="toggleStatus(this); return false;">True</a></td></tr>
+                                        <tr><td>4</td><td>Lan</td><td>Address 4</td><td>lan4@example.com</td><td>0123450004</td><td>Staff</td><td><a href="#" onclick="toggleStatus(this); return false;">True</a></td></tr>
+                                        <tr><td>5</td><td>Phuc</td><td>Address 5</td><td>phuc5@example.com</td><td>0123450005</td><td>Guest</td><td><a href="#" onclick="toggleStatus(this); return false;">True</a></td></tr>
+                                        <tr><td>6</td><td>Tam</td><td>Address 6</td><td>tam6@example.com</td><td>0123450006</td><td>Staff</td><td><a href="#" onclick="toggleStatus(this); return false;">True</a></td></tr>
+                                        <tr><td>7</td><td>Binh</td><td>Address 7</td><td>binh7@example.com</td><td>0123450007</td><td>Staff</td><td><a href="#" onclick="toggleStatus(this); return false;">True</a></td></tr>
+                                        <tr><td>8</td><td>Quang</td><td>Address 8</td><td>quang8@example.com</td><td>0123450008</td><td>Staff</td><td><a href="#" onclick="toggleStatus(this); return false;">True</a></td></tr>
+                                        <tr><td>9</td><td>Thu</td><td>Address 9</td><td>thu9@example.com</td><td>0123450009</td><td>Guest</td><td><a href="#" onclick="toggleStatus(this); return false;">True</a></td></tr>
+                                        <tr><td>10</td><td>Tuan</td><td>Address 10</td><td>tuan10@example.com</td><td>0123450010</td><td>Staff</td><td><a href="#" onclick="toggleStatus(this); return false;">True</a></td></tr>
+                                        <tr><td>11</td><td>Hoa</td><td>Address 11</td><td>hoa11@example.com</td><td>0123450011</td><td>Staff</td><td><a href="#" onclick="toggleStatus(this); return false;">True</a></td></tr>
+                                        <tr><td>12</td><td>Viet</td><td>Address 12</td><td>viet12@example.com</td><td>0123450012</td><td>Guest</td><td><a href="#" onclick="toggleStatus(this); return false;">True</a></td></tr>
+                                        <tr><td>13</td><td>Loan</td><td>Address 13</td><td>loan13@example.com</td><td>0123450013</td><td>Staff</td><td><a href="#" onclick="toggleStatus(this); return false;">False</a></td></tr>
+                                        <tr><td>14</td><td>Duy</td><td>Address 14</td><td>duy14@example.com</td><td>0123450014</td><td>Staff</td><td><a href="#" onclick="toggleStatus(this); return false;">True</a></td></tr>
+                                        <tr><td>15</td><td>Linh</td><td>Address 15</td><td>linh15@example.com</td><td>0123450015</td><td>Staff</td><td><a href="#" onclick="toggleStatus(this); return false;">True</a></td></tr>
+                                        <tr><td>16</td><td>Huy</td><td>Address 16</td><td>huy16@example.com</td><td>0123450016</td><td>Guest</td><td><a href="#" onclick="toggleStatus(this); return false;">True</a></td></tr>
+                                        <tr><td>17</td><td>Trang</td><td>Address 17</td><td>trang17@example.com</td><td>0123450017</td><td>Staff</td><td><a href="#" onclick="toggleStatus(this); return false;">False</a></td></tr>
+                                        <tr><td>18</td><td>Dat</td><td>Address 18</td><td>dat18@example.com</td><td>0123450018</td><td>Staff</td><td><a href="#" onclick="toggleStatus(this); return false;">True</a></td></tr>
+                                        <tr><td>19</td><td>An</td><td>Address 19</td><td>an19@example.com</td><td>0123450019</td><td>Staff</td><td><a href="#" onclick="toggleStatus(this); return false;">False</a></td></tr>
+                                        <tr><td>20</td><td>Mai</td><td>Address 20</td><td>mai20@example.com</td><td>0123450020</td><td>Guest</td><td><a href="#" onclick="toggleStatus(this); return false;">True</a></td></tr>
+                                        <tr><td>21</td><td>Khanh</td><td>Address 21</td><td>khanh21@example.com</td><td>0123450021</td><td>Staff</td><td><a href="#" onclick="toggleStatus(this); return false;">False</a></td></tr>
+                                        <tr><td>22</td><td>Diep</td><td>Address 22</td><td>diep22@example.com</td><td>0123450022</td><td>Staff</td><td><a href="#" onclick="toggleStatus(this); return false;">True</a></td></tr>
+                                        <tr><td>23</td><td>Long</td><td>Address 23</td><td>long23@example.com</td><td>0123450023</td><td>Guest</td><td><a href="#" onclick="toggleStatus(this); return false;">False</a></td></tr>
+                                        <tr><td>24</td><td>Phuong</td><td>Address 24</td><td>phuong24@example.com</td><td>0123450024</td><td>Staff</td><td><a href="#" onclick="toggleStatus(this); return false;">True</a></td></tr>
+                                        <tr><td>25</td><td>Son</td><td>Address 25</td><td>son25@example.com</td><td>0123450025</td><td>Guest</td><td><a href="#" onclick="toggleStatus(this); return false;">True</a></td></tr>                                    
+                                        <tr><td>3</td><td>Nam</td><td>Address 3</td><td>nam3@example.com</td><td>0123450003</td><td>Staff</td><td><a href="#" onclick="toggleStatus(this); return false;">True</a></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            <!-- Table End -->
+
+            
+            
+
+        </div>
+        <!-- Content End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <script>
+    function toggleStatus(element) {
+        const currentStatus = element.textContent.trim(); // Lấy giá trị hiện tại
+        const newStatus = currentStatus === "True" ? "False" : "True"; // Đảo trạng thái
+
+        const confirmed = confirm(`Bạn có chắc chắn muốn chuyển trạng thái thành "${newStatus}" không?`);
+
+        if (confirmed) {
+            element.textContent = newStatus;
+        }
+    }
+</script>
+<script>
+        // Load sidebar.html và chèn vào #sidebar-container
+        fetch('sidetopbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebar-container').innerHTML = data;
+            });
+    </script>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/chart/chart.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <!-- datatables -->
+       <!-- Page level plugins -->
+    <script src="datatables/jquery.dataTables.min.js"></script>
+    <script src="datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script>
+        // Call the dataTables jQuery plugin
+$(document).ready(function() {
+  $('#dataTable').DataTable();
+});
+
+    </script>
+</body>
+
+</html>
