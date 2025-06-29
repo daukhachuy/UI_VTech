@@ -28,6 +28,17 @@
 
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
+        <style>
+
+        .card {
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        .form-control[readonly] {
+            background-color: #e9ecef;
+            font-weight: bold;
+        }
+    </style>
     </head>
 
     <body>
@@ -69,12 +80,63 @@
         <!-- Navbar & Hero End -->
 
 
-        
+        <div class="container mt-5">
+    <div class="card p-4">
+        <h3 class="mb-4 text-primary text-center">Create profile filtering request</h3>
+        <form>
+            <!-- Invoice -->
+            <div class="mb-3">
+                <label for="invoice" class="form-label">Invoice</label>
+                <input type="text" class="form-control" id="invoice" value="INV-00123" readonly>
+            </div>
+
+            <!-- Dropdown -->
+            <div class="mb-3">
+                <label for="serviceOption" class="form-label">Select service</label>
+                <select class="form-select" id="serviceOption">
+                    
+                    <option value="1">service 1</option>
+                    <option value="2">service 2</option>
+                    <option value="3">service 3</option>
+                </select>
+            </div>
+
+            <!-- Tên người sử dụng -->
+            <div class="mb-3">
+                <label for="userName" class="form-label">User name</label>
+                <input type="text" class="form-control" id="userName" value="Nguyễn Văn A" readonly>
+            </div>
+
+            <!-- Ngày sử dụng -->
+            <div class="mb-3">
+                <label for="usageDate" class="form-label">Date of use</label>
+                <input type="date" class="form-control" id="usageDate" value="2025-06-29" readonly>
+            </div>
+
+            <!-- Import File -->
+            <div class="mb-3">
+                <label for="formFile" class="form-label">import data file</label>
+                <input class="form-control" type="file" id="formFile">
+            </div>
+
+            <!-- Ghi chú -->
+            <div class="mb-3">
+                <label for="note" class="form-label">Note</label>
+                <textarea class="form-control" id="note" rows="4" placeholder="Nhập ghi chú tại đây..."></textarea>
+            </div>
+
+            <!-- Submit -->
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary px-5">Execution</button>
+            </div>
+        </form>
+    </div>
+</div>
 
         
 
         <!-- Footer Start -->
-        <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
+        <div class="container-fluid footer py-5 wow fadeIn mt-5" data-wow-delay="0.2s">
             <div class="container py-5 border-start-0 border-end-0" style="border: 1px solid; border-color: rgb(255, 255, 255, 0.08);">
                 <div class="row g-5">
                     <div class="col-md-6 col-lg-6 col-xl-4">
